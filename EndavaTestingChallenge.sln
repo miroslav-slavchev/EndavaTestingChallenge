@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EndavaTestingChallenge.Tests", "EndavaTestingChallenge.Tests\EndavaTestingChallenge.Tests.csproj", "{E1EE6DE6-4DCE-4C44-8F12-4711B3D5D0C0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EndavaTestingChallenge.Library", "EndavaTestingChallenge.Library\EndavaTestingChallenge.Library.csproj", "{AC2548C2-6B34-4FD6-9201-CC14B1E023C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Selenium", "Selenium", "{B944615D-A90A-4705-87E5-F811EB61064F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RestApi", "RestApi", "{AF06D130-9B41-4A54-9D46-B26717F74EDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reqres.Library", "Reqres.Library\Reqres.Library.csproj", "{FB588D6A-DC4D-4325-B458-BA5493841598}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reqres.Tests", "Reqres.Tests\Reqres.Tests.csproj", "{80CEBCE1-FF86-40C9-8E47-E7AB8A2A8E88}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1EE6DE6-4DCE-4C44-8F12-4711B3D5D0C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1EE6DE6-4DCE-4C44-8F12-4711B3D5D0C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1EE6DE6-4DCE-4C44-8F12-4711B3D5D0C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1EE6DE6-4DCE-4C44-8F12-4711B3D5D0C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC2548C2-6B34-4FD6-9201-CC14B1E023C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC2548C2-6B34-4FD6-9201-CC14B1E023C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC2548C2-6B34-4FD6-9201-CC14B1E023C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC2548C2-6B34-4FD6-9201-CC14B1E023C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB588D6A-DC4D-4325-B458-BA5493841598}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB588D6A-DC4D-4325-B458-BA5493841598}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB588D6A-DC4D-4325-B458-BA5493841598}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB588D6A-DC4D-4325-B458-BA5493841598}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80CEBCE1-FF86-40C9-8E47-E7AB8A2A8E88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80CEBCE1-FF86-40C9-8E47-E7AB8A2A8E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80CEBCE1-FF86-40C9-8E47-E7AB8A2A8E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80CEBCE1-FF86-40C9-8E47-E7AB8A2A8E88}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E1EE6DE6-4DCE-4C44-8F12-4711B3D5D0C0} = {B944615D-A90A-4705-87E5-F811EB61064F}
+		{AC2548C2-6B34-4FD6-9201-CC14B1E023C2} = {B944615D-A90A-4705-87E5-F811EB61064F}
+		{FB588D6A-DC4D-4325-B458-BA5493841598} = {AF06D130-9B41-4A54-9D46-B26717F74EDF}
+		{80CEBCE1-FF86-40C9-8E47-E7AB8A2A8E88} = {AF06D130-9B41-4A54-9D46-B26717F74EDF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B147DFF-D5D8-406F-B7B5-1DA6D307BA7C}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,8 @@
+{
+  "AppUrl": {
+    "BaseUrl": "https://reqres.in/",
+    "Api": "api/",
+    "Version": ""
+  },
+  "TimezoneDifference": 3
+}
