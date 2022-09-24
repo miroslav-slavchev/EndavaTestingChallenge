@@ -10,6 +10,15 @@ namespace EndavaTestingChallenge.Tests
     {
         public string Url { get; set; }
 
-        public string Browser { get; set; }
+        public string Browser { get; set; } = "Chrome";
+
+        public BrowserResolution BrowserResolution { get; set; }
+    }
+
+    public class BrowserResolution
+    {
+        public int Width { get; set; }
+
+        public int Height { get; set; }
     }
 }

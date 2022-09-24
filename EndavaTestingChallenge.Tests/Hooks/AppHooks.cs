@@ -1,6 +1,7 @@
 ﻿using BoDi;
 using EndavaTestingChallenge.Library.SwagLabs.Pages;
 using EndavaTestingChallenge.Tests.FilesFacades;
+using FluentAssertions.Common;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -8,6 +9,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,11 +33,11 @@ namespace EndavaTestingChallenge.Tests.Hooks
         {
             Dictionary<string, dynamic> testData = new();
 
-            #if DEBUG
+#if DEBUG
             string envirnoment = "dev";
-            #else   
+#else
             string envirnoment = "release";
-            #endif
+#endif
             JObject json = JsonFileReaderFacade.GetJObjectFromFile($"settings.{envirnoment}.json");
             Settings = json.ToObject<Setttings>();
             ObjectContainer.RegisterInstanceAs(Settings);
@@ -50,10 +52,26 @@ namespace EndavaTestingChallenge.Tests.Hooks
 
             Driver = new Lazy<OpenQA.Selenium.IWebDriver>(() => GetDriver(Settings.Browser));
             Driver.Value.Url = Settings.Url;
+            SetResolution();
+
             App = new(Driver.Value);
 
             ObjectContainer.RegisterInstanceAs(Driver);
             ObjectContainer.RegisterInstanceAs(App);
+        }
+
+        private void SetResolution()
+        {
+            if (Settings.BrowserResolution == null)
+            {
+                Driver.Value.Manage().Window.Maximize();
+            }
+            else
+            {
+                Driver.Value.Manage().Window.Size = new Size(
+                width: Settings.BrowserResolution.Width,
+                height: Settings.BrowserResolution.Height);
+            }
         }
 
         private static IWebDriver GetDriver(string browser)
