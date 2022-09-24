@@ -1,11 +1,5 @@
 ﻿using EndavaTestingChallenge.Library.SwagLabs.Pages;
-using Newtonsoft.Json.Linq;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EndavaTestingChallenge.Tests.StepDefinitions
 {
@@ -20,7 +14,14 @@ namespace EndavaTestingChallenge.Tests.StepDefinitions
 
         protected App App { get; set; }
 
+        protected static AventStack.ExtentReports.ExtentReports ExtentReport { get; set; }
+
         public Steps() { }
+
+        public Steps(AventStack.ExtentReports.ExtentReports extentReport) 
+        {
+            ExtentReport = extentReport;
+        }
 
         public Steps(App app)
         {

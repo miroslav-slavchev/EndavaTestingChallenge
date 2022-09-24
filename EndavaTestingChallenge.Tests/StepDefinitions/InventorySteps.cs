@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TechTalk.SpecFlow.Assist;
 
 namespace EndavaTestingChallenge.Tests.StepDefinitions
 {
@@ -59,6 +60,71 @@ namespace EndavaTestingChallenge.Tests.StepDefinitions
             var itemsToAdd = GetInventoryItem(nth);
             itemsToAdd.Remove.Single().Click();
             StoreItemsData();
+        }
+
+        [When(@"Verify when for sorting it is selected ""(.*)""")]
+        public void WhenVerifyWhenForSortingItIsSelected(string option)
+        {
+            App.InventoryPage.SortSelect.SelectOption(option);
+        }
+
+        [Then(@"The items are sorted in the correct manner")]
+        public void ThenTheItemsAreSortedInTheCorrectManner()
+        {
+            var currentSelect = App.InventoryPage.SortSelect.SelectedOption;
+            var allItems = App.InventoryPage.InventoryItems.Select(item => item);
+
+            if (currentSelect.StartsWith("Name"))
+            {
+                ValidateByName(currentSelect, allItems);
+            }
+            else if (currentSelect.StartsWith("Price"))
+            {
+                ValidateByPrice(currentSelect, allItems);
+            }
+            else
+            {
+                throw new NotSupportedException($"Not supported:{currentSelect}");
+            }
+        }
+
+        private static void ValidateByPrice(string currentSelect, IEnumerable<InventoryProductItem> allItems)
+        {
+            List<double> actualItems = allItems.Select(item => item.InventoryPrice.Price).ToList();
+            List<double> expectedItems;
+            if (currentSelect.EndsWith("(low to high)"))
+            {
+                expectedItems = actualItems.OrderBy(item => item).ToList();
+            }
+            else if (currentSelect.EndsWith("(high to low)"))
+            {
+                expectedItems = actualItems.OrderByDescending(item => item).ToList();
+            }
+            else
+            {
+                throw new NotSupportedException($"Not supported:{currentSelect}");
+            }
+            actualItems.Should().BeEquivalentTo(expectedItems);
+        }
+
+        private static void ValidateByName(string currentSelect, IEnumerable<InventoryProductItem> allItems)
+        {
+            List<string> actualItems = allItems.Select(item => item.Name.Text).ToList();
+            List<string> expectedItems;
+            if (currentSelect.EndsWith("(A to Z)"))
+            {
+                expectedItems = actualItems.OrderBy(item => item).ToList();
+            }
+            else if (currentSelect.EndsWith("(Z to A)"))
+            {
+                expectedItems = actualItems.OrderByDescending(item => item).ToList();
+            }
+            else
+            {
+                throw new NotSupportedException($"Not supported:{currentSelect}");
+            }
+
+            actualItems.Should().BeEquivalentTo(expectedItems);
         }
 
         private List<InventoryProductItem> GetInventoryItems(params string[] indexes) => indexes.Select(index => GetInventoryItem(index)).ToList();

@@ -4,6 +4,7 @@
 Background:
 	Given Log in with the standard user
 
+@Checkout
 Scenario: Scenario 1 - Use the standard user and password (they are prone to change, think how to obtain them)
 	When Add the first and the last items in the cart
 	When Go to checkout
@@ -22,11 +23,13 @@ Scenario: Scenario 1 - Use the standard user and password (they are prone to cha
 	When Go to checkout
 	Then Verify cart is empty
 
+#To run the (filtered) test via dotnet terminal user command: dotnet test --filter Category=Checkout
+@Sort
 Scenario: Scenario 2 - Sorting
-	Then Verify when for sorting it is selected "Price (high to low)"
-	And The items are sorted in the correct manner
-	And Logout from the system
-
+	When Verify when for sorting it is selected "Price (high to low)"
+	Then The items are sorted in the correct manner
+	
+#To run the (filtered) test via dotnet terminal user command: dotnet test --filter Category=Sort
 
 
 

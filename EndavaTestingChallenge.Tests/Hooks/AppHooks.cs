@@ -1,6 +1,11 @@
 ﻿using BoDi;
 using EndavaTestingChallenge.Library.SwagLabs.Pages;
+using EndavaTestingChallenge.Tests.FilesFacades;
+using Newtonsoft.Json.Linq;
+using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,23 +24,49 @@ namespace EndavaTestingChallenge.Tests.Hooks
             ObjectContainer = objectContainer;
         }
 
+
         [BeforeScenario]
-        public void OpenBrowser()
+        [Order(1)]
+        public void InitConfig()
         {
             Dictionary<string, dynamic> testData = new();
-            JsonFileReaderFacade config = new JsonFileReaderFacade();
-            Setttings settings = config.GetJObjectFromFile("settings.json").ToObject<Setttings>();
 
-            Driver = new Lazy<OpenQA.Selenium.IWebDriver>(() => new ChromeDriver());
-            Driver.Value.Url = settings.Url;
-            App = new(Driver.Value);
-
-            ObjectContainer.RegisterInstanceAs(settings);
-            ObjectContainer.RegisterInstanceAs(Driver);
-            ObjectContainer.RegisterInstanceAs(App);
+            #if DEBUG
+            string envirnoment = "dev";
+            #else   
+            string envirnoment = "release";
+            #endif
+            JObject json = JsonFileReaderFacade.GetJObjectFromFile($"settings.{envirnoment}.json");
+            Settings = json.ToObject<Setttings>();
+            ObjectContainer.RegisterInstanceAs(Settings);
             ObjectContainer.RegisterInstanceAs(testData);
+            ObjectContainer.RegisterInstanceAs(ExtentReport);
         }
 
+        [BeforeScenario]
+        [Order(2)]
+        public void OpenBrowser()
+        {
+
+            Driver = new Lazy<OpenQA.Selenium.IWebDriver>(() => GetDriver(Settings.Browser));
+            Driver.Value.Url = Settings.Url;
+            App = new(Driver.Value);
+
+            ObjectContainer.RegisterInstanceAs(Driver);
+            ObjectContainer.RegisterInstanceAs(App);
+        }
+
+        private static IWebDriver GetDriver(string browser)
+        {
+            IWebDriver webDriver;
+            switch (browser)
+            {
+                case "Chrome": webDriver = new ChromeDriver(); break;
+                case "Firefox": webDriver = new FirefoxDriver(); break;
+                default: throw new NotSupportedException(browser);
+            }
+            return webDriver;
+        }
 
         [AfterScenario(Order = 1)]
         public void LogOut()
