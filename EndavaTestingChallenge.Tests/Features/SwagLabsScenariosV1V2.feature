@@ -1,11 +1,12 @@
-﻿Feature: SwagLabsScenariosV1
+﻿Feature: SwagLabsScenariosV1V2
 	Test Scenarios for https://www.saucedemo.com/
-	
+	Use the standard user and password (they are prone to change, think how to obtain them)
+
 Background:
 	Given Log in with the standard user
 
 @Checkout
-Scenario: Scenario 1 - Use the standard user and password (they are prone to change, think how to obtain them)
+Scenario: Scenario 1 - Checkout
 	When Add the first and the last items in the cart
 	When Go to checkout
 	Then Verify the correct items are added
