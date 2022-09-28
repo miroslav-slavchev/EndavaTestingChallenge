@@ -20,22 +20,22 @@ namespace EndavaTestingChallenge.Tests.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("SwagLabsScenariosV1")]
-    public partial class SwagLabsScenariosV1Feature
+    [NUnit.Framework.DescriptionAttribute("SwagLabsScenariosV1V2")]
+    public partial class SwagLabsScenariosV1V2Feature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "SwagLabsScenariosV1.feature"
+#line 1 "SwagLabsScenariosV1V2.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "SwagLabsScenariosV1", "\tTest Scenarios for https://www.saucedemo.com/\r\n\tUse the standard user and passwo" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "SwagLabsScenariosV1V2", "\tTest Scenarios for https://www.saucedemo.com/\r\n\tUse the standard user and passwo" +
                     "rd (they are prone to change, think how to obtain them)", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
