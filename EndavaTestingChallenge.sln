@@ -11,9 +11,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Selenium", "Selenium", "{B9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RestApi", "RestApi", "{AF06D130-9B41-4A54-9D46-B26717F74EDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reqres.Library", "Reqres.Library\Reqres.Library.csproj", "{FB588D6A-DC4D-4325-B458-BA5493841598}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reqres.Library", "Reqres.Library\Reqres.Library.csproj", "{FB588D6A-DC4D-4325-B458-BA5493841598}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reqres.Tests", "Reqres.Tests\Reqres.Tests.csproj", "{80CEBCE1-FF86-40C9-8E47-E7AB8A2A8E88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reqres.Tests", "Reqres.Tests\Reqres.Tests.csproj", "{80CEBCE1-FF86-40C9-8E47-E7AB8A2A8E88}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B896DF54-91F7-44F8-A18E-97612B10E4B2}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.txt = ReadMe.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
